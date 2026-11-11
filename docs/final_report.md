@@ -1,4 +1,4 @@
-# Software Quality Engineering – Assignment 2
+
 ## Student Course Registration System
 
 **Student Name:** Faiza Qadeer  
@@ -6,7 +6,6 @@
 **Course:** Software Quality Engineering
 
 ---
-
 # 1. Introduction
 
 The purpose of this assignment was to evaluate the quality and correctness of a Student Course Registration System using black-box testing, white-box testing, and GitHub collaboration tools.
@@ -28,15 +27,17 @@ The following black-box testing techniques were used:
 
 The tests were designed using the functional requirements of the registration system.
 
-## 2.2 Test Execution Results
+## 2.2 Baseline Test Execution Results
 
-A total of 44 test cases were executed using pytest.
+The original black-box test suite contained 44 test cases.
 
 | Result | Number |
 |---|---:|
 | Total test cases | 44 |
 | Passed | 35 |
 | Failed | 9 |
+
+These results represent the original baseline testing before adding the white-box tests.
 
 ## 2.3 Defects Identified
 
@@ -95,24 +96,41 @@ The WAITLISTED decision is unreachable in the original implementation because th
 
 Therefore, full MC/DC coverage of that decision could not be demonstrated against the original code.
 
-## 3.4 Code Coverage Results
+## 3.4 White-Box Test Results
 
-Coverage was measured using pytest-cov.
+A separate white-box test file was created at `tests/test_whitebox.py`.
+
+| Result | Number |
+|---|---:|
+| White-box test cases | 14 |
+| Passed | 14 |
+| Failed | 0 |
+
+All 14 white-box tests passed.
+
+## 3.5 Latest Combined Test and Coverage Results
+
+After adding the white-box tests, the complete test suite contained 58 test cases.
+
+| Result | Number |
+|---|---:|
+| Total test cases | 58 |
+| Passed | 49 |
+| Failed | 9 |
+
+The latest GitHub Actions coverage output showed:
 
 | Coverage Metric | Result |
 |---|---:|
-| Total statements | 53 |
-| Covered statements | 49 |
-| Missed statements | 4 |
-| Statement coverage | 92.45% |
+| Total statements | 57 |
+| Missed statements | 3 |
 | Total branches | 26 |
-| Covered branches | 21 |
-| Branch coverage | 80.77% |
-| Combined coverage reported by pytest | 89% |
+| Partially covered branches | 2 |
+| Overall coverage reported | 92% |
 
-The coverage report showed three partially covered branches and the following missing lines: 55, 59, 70–71.
+The nine failed tests are the previously identified defects in the original implementation. The combined test results confirm that all 14 white-box tests passed.
 
-## 3.5 Part B Conclusion
+## 3.6 Part B Conclusion
 
 White-box testing helped analyze the internal structure of the program. CFGs, cyclomatic complexity, independent paths, MC/DC scenarios, and coverage measurements were used to evaluate the implementation.
 
@@ -122,7 +140,7 @@ White-box testing helped analyze the internal structure of the program. CFGs, cy
 
 A public GitHub repository was created:
 
-[ SQE-Assignment-2 ](https://github.com/faiza-qadeer/SQE-Assignment-2)
+[SQE-Assignment-2](https://github.com/faiza-qadeer/SQE-Assignment-2)
 
 The repository contains the source code, test cases, requirements, and testing documentation.
 
@@ -132,8 +150,9 @@ The following branches were used:
 
 - `main`
 - `testing-improvements`
+- `submission-format`
 
-The testing-improvements branch was created to keep documentation and workflow changes separate from the main branch.
+The additional branches were created to keep documentation, workflow, and submission-format changes separate from the main branch.
 
 ## 4.3 Commits
 
@@ -144,6 +163,8 @@ Important commits included:
 | `87dd38a` | Add Part A and Part B testing |
 | `10d1956` | Document defects tracked in GitHub issues |
 | `e126b10` | Add GitHub Actions automated testing |
+| `b6d4a64` | Add final assignment report |
+| `ae78b6e` | Add white-box tests and assignment documentation files |
 
 ## 4.4 GitHub Issues
 
@@ -159,18 +180,20 @@ These issues provide a record of the defects and their expected corrections.
 
 ## 4.5 Pull Requests
 
-Two Pull Requests were created and merged into the main branch.
+Four Pull Requests were created and merged into the main branch:
 
-- **Pull Request 1:** Document testing defects and improvements.
-- **Pull Request 2:** Add GitHub Actions automated testing.
+- **PR #6:** Document testing defects and improvements.
+- **PR #7:** Add GitHub Actions automated testing.
+- **PR #8:** Add final assignment report.
+- **PR #9:** Add required submission files and white-box tests.
 
-The Pull Requests were used to review and merge changes from the testing-improvements branch into main.
+Pull Requests were used to review and merge changes from the working branches into `main`.
 
 ## 4.6 GitHub Actions
 
 A GitHub Actions workflow was created at:
 
-`.github/workflows/python-tests.yml`
+`.github/workflows/tests.yml`
 
 The workflow automatically:
 
@@ -181,7 +204,7 @@ The workflow automatically:
 
 The workflow was triggered by pushes and pull requests.
 
-The recorded workflow runs failed at the test step because the original implementation contains known defects that cause nine test failures. The workflow was successfully triggered for pushes and pull requests.
+The latest workflow run successfully executed all 58 tests but reported failure because nine tests failed due to known defects in the original implementation. The workflow itself was successfully triggered and executed.
 
 # 5. Comparison of Testing Results
 
@@ -204,4 +227,6 @@ Black-box testing identified functional defects, while white-box testing examine
 
 GitHub Actions was configured to execute automated tests whenever the specified repository events occurred.
 
-Overall, the assignment demonstrated how different software quality engineering techniques can be combined to evaluate and improve software quality.
+The final combined test suite contained 58 tests, with 49 passing and 9 failing due to documented defects in the original implementation.
+
+Overall, the assignment demonstrated how different software quality engineering techniques can be combined to evaluate software quality and document areas that require improvement.
