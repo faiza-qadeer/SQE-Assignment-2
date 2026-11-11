@@ -22,3 +22,16 @@ python -c "from registration import Student, Course, register_course; print(regi
 6. Make any defect fixes in a separate Pull Request with accompanying regression tests.
 
 Some tests may fail against the supplied source. This is intentional for the exercise.
+## Defect Tracking
+
+The following defects were identified during black-box testing and recorded as GitHub Issues:
+
+| Issue | Defect |
+|---|---|
+| #1 | Fix credit limit boundary condition |
+| #2 | Fix prerequisite validation logic |
+| #3 | Fix outstanding dues validation |
+| #4 | Fix course capacity and waitlist logic |
+| #5 | Fix enrollment count during withdrawal |
+
+These issues document the problems found in the original implementation and provide a record for tracking future fixes.
