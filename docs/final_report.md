@@ -118,7 +118,7 @@ After adding the white-box tests, the complete test suite contained 58 test case
 | Passed | 49 |
 | Failed | 9 |
 
-The latest GitHub Actions coverage output showed:
+The latest GitHub Actions coverage report showed:
 
 | Coverage Metric | Result |
 |---|---:|
@@ -126,9 +126,11 @@ The latest GitHub Actions coverage output showed:
 | Missed statements | 3 |
 | Total branches | 26 |
 | Partially covered branches | 2 |
-| Overall coverage reported | 92% |
+| Overall coverage | 92% |
 
-The nine failed tests are the previously identified defects in the original implementation. The combined test results confirm that all 14 white-box tests passed.
+The nine failed tests are related to the five previously identified defect areas in the original implementation. All 14 white-box tests passed.
+
+The latest coverage report also identified missing lines 55, 59, and 70–71.
 
 ## 3.6 Part B Conclusion
 
